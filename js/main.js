@@ -1,5 +1,38 @@
+const initializeGoogleAnalytics = (measurementId) => {
+    if (!measurementId) {
+        return;
+    }
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function gtag() {
+        window.dataLayer.push(arguments);
+    };
+
+    window.gtag('js', new Date());
+    window.gtag('config', measurementId, {
+        anonymize_ip: true,
+    });
+};
+
+const trackAnalyticsEvent = (eventName, parameters = {}) => {
+    if (typeof window.gtag !== 'function') {
+        return;
+    }
+
+    window.gtag('event', eventName, {
+        transport_type: 'beacon',
+        ...parameters,
+    });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     const config = window.ELIDRIEL_CONFIG || {};
+    initializeGoogleAnalytics(config.analyticsMeasurementId);
 
     const steamButton = document.getElementById('steamButton');
     const steamFooterButton = document.getElementById('steamFooterButton');
@@ -44,6 +77,28 @@ document.addEventListener('DOMContentLoaded', () => {
     if (trailerVideo) {
         trailerVideo.src = config.trailerEmbedUrl || config.trailerFallbackUrl || 'about:blank';
     }
+
+    const addTrackedClick = (element, eventName, eventLabel, extraParameters = {}) => {
+        if (!element) {
+            return;
+        }
+
+        element.addEventListener('click', () => {
+            trackAnalyticsEvent(eventName, {
+                event_label: eventLabel,
+                link_url: element.href || '',
+                ...extraParameters,
+            });
+        });
+    };
+
+    addTrackedClick(steamButton, 'cta_click', 'wishlist_now_top', { link_category: 'steam' });
+    addTrackedClick(steamFooterButton, 'cta_click', 'wishlist_now_footer', { link_category: 'steam' });
+    addTrackedClick(pressKitLink, 'cta_click', 'press_kit', { link_category: 'press_kit' });
+    addTrackedClick(streamerKitLink, 'cta_click', 'streamer_kit', { link_category: 'streamer_kit' });
+    addTrackedClick(youtubeLink, 'social_click', 'youtube', { link_category: 'social' });
+    addTrackedClick(instagramLink, 'social_click', 'instagram', { link_category: 'social' });
+    addTrackedClick(discordLink, 'social_click', 'discord', { link_category: 'social' });
 
     const carouselDotImages = config.carouselDotImages || {
         inactive: 'img/Visuals/Checked-False.png',

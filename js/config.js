@@ -5,6 +5,7 @@ window.ELIDRIEL_CONFIG = {
     discordUrl: 'https://discord.gg/',
     pressKitUrl: 'https://drive.google.com/drive/folders/1nAdy-VggEVLs0e3Pc6HoqRFguaI9Oyfa?usp=sharing',
     streamerKitUrl: '#',
+    analyticsMeasurementId: 'G-3XW232Y4QL',
     trailerEmbedUrl: '',
     trailerFallbackUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     carouselDotImages: {
