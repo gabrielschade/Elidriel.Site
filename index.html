@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elidriel
+    </title>
+    <meta name="description" content="Elidriel - Experience exciting reactive turn-based combat, freedom to traverse a living world, and build your characters your way.">
+    <link rel="icon" href="img/Icons/icon.ico" sizes="any">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a class="nav-logo" href="#home" aria-label="Elidriel home">
+                <img src="img/Logo/white.png" alt="Elidriel Logo">
+            </a>
+            <a class="nav-home-mobile nav-link" href="#home">Elidriel</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Elidriel</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#characters" class="nav-link">Characters</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#pressKitLink" class="nav-link">Press Kit</a></li>
+                <li><a href="#streamerKitLink" class="nav-link">Streamer Kit</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-image">
+            <!-- Hero image will be set in CSS or can be replaced with actual game title image -->
+            <div class="hero-overlay"></div>
+        </div>
+    </section>
+
+    <!-- Steam Wishlist CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Wishlist now!</h2>
+            <iframe src="https://store.steampowered.com/widget/2437550/" frameborder="0" width="646" height="190"></iframe>
+            <a href="#" class="steam-widget" id="steamButton" target="_blank" rel="noopener">
+                <img class="steam-icon" src="img/Icons/logo_steam.svg" alt="Steam">
+                <span>Wishlist now</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section" hidden>
+        <div class="container">
+            <div class="video-wrapper">
+                <iframe 
+                    id="trailerVideo"
+                    width="100%" 
+                    height="100%" 
+                    src="about:blank" 
+                    title="Elidriel Trailer" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="features-intro">
+                <h2 class="section-title" data-content-key="features.title">Features</h2>
+                <p class="section-description" data-content-key="features.description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
+            </div>
+
+            <div class="feature-main-row">
+                <div class="feature-media">
+                    <div class="carousel" data-carousel="combat">
+                        <button class="carousel-btn prev" aria-label="Previous">‹</button>
+                        <div class="carousel-track-container">
+                            <div class="carousel-track">
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Battle/Helena Skill.png" alt="Combat Helena Skill Screenshot">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Battle/Winter Boss.png" alt="Combat Winter Boss Screenshot">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Battle/Thunder.png" alt="Combat Thunder Screenshot">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Battle/Aerial Slash.png" alt="Combat Aerial Slash Screenshot">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Battle/Parry.png" alt="Combat Parry Screenshot">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Battle/Meteor Strike.png" alt="Combat Meteor Strike Screenshot">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Battle/Synergy Attack.png" alt="Combat Synergy Attack Screenshot">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Battle/Enemy Parry.png" alt="Combat Enemy Parry Screenshot">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Battle/Quick Time Event Success.png" alt="Combat Quick Time Event Success Screenshot">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Battle/Dealing Damage to a Dragon.png" alt="Combat Dealing Damage to a Dragon Screenshot">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Battle/Special Attack 1.png" alt="Combat Special Attack 1 Screenshot">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Battle/Special Attack 2.png" alt="Combat Special Attack 2 Screenshot">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Battle/Piercing Strike.png" alt="Combat Piercing Attack Screenshot">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Battle/Spider Boss attack.png" alt="Combat Spider Boss Attack Screenshot">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Battle/Spider Boss attack 2.png" alt="Combat Spider Boss Attack 2 Screenshot">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-btn next" aria-label="Next">›</button>
+                        <div class="carousel-dots"></div>
+                    </div>
+                </div>
+
+                <div class="feature-copy">
+                    <h3 class="feature-title" data-content-key="combat.title">Exciting reactive turn-based combat.</h3>
+                    <p class="feature-description" data-content-key="combat.description">
+                        No random encounters, you can always spot enemies. No grinding, just strategy and smart builds are capable of beating any enemy. Parry attacks, boost your damage through Quick Time Events, put enemies under pressure and stagger them, combine spells and techniques to create powerful reactions.
+                    </p>
+                </div>
+            </div>
+
+            <div class="feature-main-row feature-main-row-reverse">
+                <div class="feature-copy">
+                    <h3 class="feature-title" data-content-key="exploration.title">Freedom to traverse a living world.</h3>
+                    <p class="feature-description" data-content-key="exploration.description">
+                        Climb, swim, sneak, run, smash and move rocks! A modern movement system where the player can reach almost any place.
+                    </p>
+                </div>
+
+                <div class="feature-media">
+                    <div class="carousel" data-carousel="traversal">
+                        <button class="carousel-btn prev" aria-label="Previous">‹</button>
+                        <div class="carousel-track-container">
+                            <div class="carousel-track">
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Exploration/Exploring Cave.png" alt="Exploration Screenshot 2">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Exploration/Running in the Forest.png" alt="Exploration Screenshot 4">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Scenes/Sacred Temple.png" alt="Exploration Screenshot 8">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Exploration/Alberta City.png" alt="Exploration Screenshot 4">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Exploration/Playing Song-1.png" alt="Exploration Screenshot 9">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Exploration/Exploring Cave 2.png" alt="Exploration Screenshot 3">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Exploration/Swimming.png" alt="Exploration Screenshot 5">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Scenes/Hatman.png" alt="Exploration Screenshot 8">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Exploration/Climbing.png" alt="Exploration Screenshot 6">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Exploration/Cook-1.png" alt="Exploration Screenshot 7">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Exploration/Cook-2.png" alt="Exploration Screenshot 7">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Exploration/Mine.png" alt="Exploration Screenshot 8">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Exploration/Swimming 2.png" alt="Exploration Screenshot 9">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Exploration/Zaharat.png" alt="Exploration Screenshot 8">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-btn next" aria-label="Next">›</button>
+                        <div class="carousel-dots"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-main-row">
+                <div class="feature-media">
+                    <div class="carousel" data-carousel="jobs">
+                        <button class="carousel-btn prev" aria-label="Previous">‹</button>
+                        <div class="carousel-track-container">
+                            <div class="carousel-track">
+                                <div class="carousel-slide active">
+                                    <img src="img/Screenshots/Menus/Job System.png" alt="Job System Screenshot 1">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Menus/Skills.png" alt="Job System Screenshot 2">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Menus/Status.png" alt="Job System Screenshot 3">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Menus/Equip.png" alt="Job System Screenshot 4">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Menus/Job System-2.png" alt="Job System Screenshot 6">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Menus/Job Unlocked.png" alt="Job System Screenshot 5">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="img/Screenshots/Menus/Main Menu.png" alt="Job System Screenshot 7">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-btn next" aria-label="Next">›</button>
+                        <div class="carousel-dots"></div>
+                    </div>
+                </div>
+
+                <div class="feature-copy">
+                    <h3 class="feature-title" data-content-key="characterBuilds.title">Your characters, your build.</h3>
+                    <p class="feature-description" data-content-key="characterBuilds.description">
+                        Each character begins with a starting job, but you can unlock and switch between more than 25 unique jobs, changing their combat style, attributes, skills, and more.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section id="characters" class="characters-section">
+        <div class="container">
+            <h2 class="section-title">Playable Characters</h2>
+            
+            <!-- Character Tabs -->
+            <div class="character-tabs">
+                <button class="character-tab active" data-character="sarah">
+                    <img src="img/Characters/menu_group_Sarah_selected.png" alt="Sarah" class="tab-img-selected">
+                    <img src="img/Characters/menu_group_Sarah.png" alt="Sarah" class="tab-img">
+                </button>
+                <button class="character-tab" data-character="helena">
+                    <img src="img/Characters/menu_group_Helena_selected.png" alt="Helena" class="tab-img-selected">
+                    <img src="img/Characters/menu_group_Helena.png" alt="Helena" class="tab-img">
+                </button>
+                <button class="character-tab" data-character="kell">
+                    <img src="img/Characters/menu_group_Kell_selected.png" alt="Kell" class="tab-img-selected">
+                    <img src="img/Characters/menu_group_Kell.png" alt="Kell" class="tab-img">
+                </button>
+                <button class="character-tab" data-character="erling">
+                    <img src="img/Characters/menu_group_Erling_selected.png" alt="Erling" class="tab-img-selected">
+                    <img src="img/Characters/menu_group_Erling.png" alt="Erling" class="tab-img">
+                </button>
+                <button class="character-tab" data-character="emmy">
+                    <img src="img/Characters/menu_group_Emmy_selected.png" alt="Emmy" class="tab-img-selected">
+                    <img src="img/Characters/menu_group_Emmy.png" alt="Emmy" class="tab-img">
+                </button>
+            </div>
+
+            <!-- Character Details -->
+            <div class="character-details">
+                <div class="character-panel active" data-character="sarah">
+                    <div class="character-info">
+                        <h3 class="character-name" data-content-key="characters.sarah.name">Sarah</h3>
+                        <p class="character-description" data-content-key="characters.sarah.description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        </p>
+                    </div>
+                    <div class="character-images">
+                        <div class="character-image-frame character-menu-image">
+                            <img src="img/Characters/menu/Sarah.png" alt="Sarah menu art">
+                        </div>
+                        <div class="carousel character-battle-carousel" data-carousel="sarah-battle">
+                            <button class="carousel-btn prev" aria-label="Previous character animation">‹</button>
+                            <div class="carousel-track-container">
+                                <div class="carousel-track">
+                                    <div class="carousel-slide active">
+                                        <img src="img/Characters/gifs/01-Sarah_Idle.gif" alt="Sarah idle battle animation">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="img/Characters/gifs/01-Sarah_Attack.gif" alt="Sarah attack battle animation">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-btn next" aria-label="Next character animation">›</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-panel" data-character="helena">
+                    <div class="character-info">
+                        <h3 class="character-name" data-content-key="characters.helena.name">Helena</h3>
+                        <p class="character-description" data-content-key="characters.helena.description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        </p>
+                    </div>
+                    <div class="character-images">
+                        <div class="character-image-frame character-menu-image">
+                            <img src="img/Characters/menu/Helena.png" alt="Helena menu art">
+                        </div>
+                        <div class="carousel character-battle-carousel" data-carousel="helena-battle">
+                            <button class="carousel-btn prev" aria-label="Previous character animation">‹</button>
+                            <div class="carousel-track-container">
+                                <div class="carousel-track">
+                                    <div class="carousel-slide active">
+                                        <img src="img/Characters/gifs/02-Helena_Idle.gif" alt="Helena idle battle animation">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="img/Characters/gifs/02-Helena_Attack_1.gif" alt="Helena attack battle animation 1">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="img/Characters/gifs/02-Helena_Attack_2.gif" alt="Helena attack battle animation 2">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-btn next" aria-label="Next character animation">›</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-panel" data-character="kell">
+                    <div class="character-info">
+                        <h3 class="character-name" data-content-key="characters.kell.name">Kell</h3>
+                        <p class="character-description" data-content-key="characters.kell.description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        </p>
+                    </div>
+                    <div class="character-images">
+                        <div class="character-image-frame character-menu-image">
+                            <img src="img/Characters/menu/Kell.png" alt="Kell menu art">
+                        </div>
+                        <div class="carousel character-battle-carousel" data-carousel="kell-battle">
+                            <button class="carousel-btn prev" aria-label="Previous character animation">‹</button>
+                            <div class="carousel-track-container">
+                                <div class="carousel-track">
+                                    <div class="carousel-slide active">
+                                        <img src="img/Characters/gifs/02-Kell_Idle.gif" alt="Kell idle battle animation">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="img/Characters/gifs/02-Kell_Attack.gif" alt="Kell attack battle animation">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-btn next" aria-label="Next character animation">›</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-panel" data-character="erling">
+                    <div class="character-info">
+                        <h3 class="character-name" data-content-key="characters.erling.name">Erling</h3>
+                        <p class="character-description" data-content-key="characters.erling.description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        </p>
+                    </div>
+                    <div class="character-images">
+                        <div class="character-image-frame character-menu-image">
+                            <img src="img/Characters/menu/Erling.png" alt="Erling menu art">
+                        </div>
+                        <div class="carousel character-battle-carousel" data-carousel="erling-battle">
+                            <button class="carousel-btn prev" aria-label="Previous character animation">‹</button>
+                            <div class="carousel-track-container">
+                                <div class="carousel-track">
+                                    <div class="carousel-slide active">
+                                        <img src="img/Characters/gifs/05-Erling_Idle.gif" alt="Erling idle battle animation">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="img/Characters/gifs/05-Erling_Attack.gif" alt="Erling attack battle animation">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-btn next" aria-label="Next character animation">›</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-panel" data-character="emmy">
+                    <div class="character-info">
+                        <h3 class="character-name" data-content-key="characters.emmy.name">Emmy</h3>
+                        <p class="character-description" data-content-key="characters.emmy.description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        </p>
+                    </div>
+                    <div class="character-images">
+                        <div class="character-image-frame character-menu-image">
+                            <img src="img/Characters/menu/Emmy.png" alt="Emmy menu art">
+                        </div>
+                        <div class="carousel character-battle-carousel" data-carousel="emmy-battle">
+                            <button class="carousel-btn prev" aria-label="Previous character animation">‹</button>
+                            <div class="carousel-track-container">
+                                <div class="carousel-track">
+                                    <div class="carousel-slide active">
+                                        <img src="img/Characters/gifs/04-Emmy_Idle.gif" alt="Emmy idle battle animation">
+                                    </div>
+                                    <div class="carousel-slide">
+                                        <img src="img/Characters/gifs/04-Emmy_Attack.gif" alt="Emmy attack battle animation">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-btn next" aria-label="Next character animation">›</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Questions & Answers</h2>
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <div class="faq-question" data-content-key="faq.items.0.question">What platforms will Elidriel be available on?</div>
+                    <div class="faq-answer">
+                        <p data-content-key="faq.items.0.answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                    </div>
+                </div>
+
+                <div class="faq-card">
+                    <div class="faq-question" data-content-key="faq.items.1.question">Is there multiplayer or co-op gameplay?</div>
+                    <div class="faq-answer">
+                        <p data-content-key="faq.items.1.answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                    </div>
+                </div>
+
+                <div class="faq-card">
+                    <div class="faq-question" data-content-key="faq.items.2.question">How long is the game?</div>
+                    <div class="faq-answer">
+                        <p data-content-key="faq.items.2.answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                    </div>
+                </div>
+
+                <div class="faq-card">
+                    <div class="faq-question" data-content-key="faq.items.3.question">Will there be a physical edition?</div>
+                    <div class="faq-answer">
+                        <p data-content-key="faq.items.3.answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                    </div>
+                </div>
+
+                <div class="faq-card">
+                    <div class="faq-question" data-content-key="faq.items.4.question">What languages will the game support?</div>
+                    <div class="faq-answer">
+                        <p data-content-key="faq.items.4.answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                    </div>
+                </div>
+
+                <div class="faq-card">
+                    <div class="faq-question" data-content-key="faq.items.5.question">When is the expected release date?</div>
+                    <div class="faq-answer">
+                        <p data-content-key="faq.items.5.answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press & Streamer Kits -->
+    <section id="kits" class="kits-section">
+        <div class="container">
+            <div class="kits-grid">
+                <a href="#" class="kit-card" id="pressKitLink" target="_blank">
+                    <div class="kit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 6.5H15.5L20 11V18.5C20 19.3284 19.3284 20 18.5 20H5.5C4.67157 20 4 19.3284 4 18.5V6.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M15.5 6.5V11H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7 13H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M7 16H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="kit-content">
+                        <h3>Press Kit</h3>
+                        <p data-content-key="kits.press.description">Download logos, screenshots, and press materials</p>
+                    </div>
+                </a>
+
+                <a href="#" class="kit-card" id="streamerKitLink">
+                    <div class="kit-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 10L19.5528 7.72361C20.2177 7.39116 21 7.87465 21 8.61803V15.382C21 16.1253 20.2177 16.6088 19.5528 16.2764L15 14M5 18H13C14.1046 18 15 17.1046 15 16V8C15 6.89543 14.1046 6 13 6H5C3.89543 6 3 6.89543 3 8V16C3 17.1046 3.89543 18 5 18Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="kit-content">
+                        <h3>Streamer Kit</h3>
+                        <p data-content-key="kits.streamer.description">Get overlays, graphics, and streaming assets</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <p class="footer-copy footer-copy-mobile">Gabriel Schade Cardoso - 2026 &copy; Elidriel. All Rights Reserved.</p>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-social">
+                    <a href="#" class="social-link" id="youtubeLink" target="_blank" rel="noopener" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" id="instagramLink" target="_blank" rel="noopener" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" id="discordLink" target="_blank" rel="noopener" aria-label="Discord">
+                        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.211.375-.448.864-.614 1.25a18.27 18.27 0 0 0-5.487 0 12.617 12.617 0 0 0-.617-1.25.077.077 0 0 0-.079-.037c-1.68.288-3.305.81-4.885 1.515a.07.07 0 0 0-.032.027C1.533 9.488.92 14.458 1.19 19.393a.083.083 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.463-.63.875-1.295 1.226-1.992a.076.076 0 0 0-.041-.104 13.14 13.14 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.125-.094.251-.191.371-.29a.074.074 0 0 1 .077-.01c3.927 1.794 8.18 1.794 12.061 0a.074.074 0 0 1 .078.01c.12.099.246.196.371.29a.077.077 0 0 1-.006.128 12.29 12.29 0 0 1-1.873.892.077.077 0 0 0-.04.104c.36.697.772 1.362 1.225 1.992a.076.076 0 0 0 .084.028 19.873 19.873 0 0 0 6-3.03.077.077 0 0 0 .031-.057c.322-5.43-.545-10.37-2.292-14.997a.062.062 0 0 0-.031-.028ZM8.02 15.331c-1.18 0-2.148-1.085-2.148-2.419 0-1.334.956-2.42 2.148-2.42 1.202 0 2.168 1.094 2.149 2.42 0 1.334-.956 2.419-2.148 2.419Zm7.98 0c-1.18 0-2.148-1.085-2.148-2.419 0-1.334.956-2.42 2.148-2.42 1.202 0 2.168 1.094 2.149 2.42 0 1.334-.947 2.419-2.15 2.419Z"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <p class="footer-copy">Gabriel Schade Cardoso - 2026 &copy; Elidriel. All Rights Reserved.</p>
+
+                <div class="footer-cta">
+                    <a href="#" class="steam-footer-button" id="steamFooterButton" target="_blank" rel="noopener">
+                        <img class="steam-icon" src="img/Icons/logo_steam.svg" alt="Steam">
+                        <span>Wishlist now</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="gallery-modal" id="galleryModal" hidden>
+        <div class="gallery-modal-backdrop" data-gallery-close></div>
+        <div class="gallery-modal-panel" role="dialog" aria-modal="true" aria-label="Image gallery">
+            <button class="gallery-modal-close" type="button" aria-label="Close gallery" data-gallery-close>×</button>
+            <button class="gallery-modal-arrow prev" type="button" aria-label="Previous image">‹</button>
+            <div class="gallery-modal-image-wrap">
+                <div class="gallery-modal-stage">
+                    <div class="gallery-modal-track" id="galleryModalTrack">
+                        <div class="gallery-modal-slide">
+                            <img class="gallery-modal-image" id="galleryModalImage" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="gallery-modal-arrow next" type="button" aria-label="Next image">›</button>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/content-data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
