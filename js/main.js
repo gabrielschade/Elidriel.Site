@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pressKitLink = document.getElementById('pressKitLink');
     const streamerKitLink = document.getElementById('streamerKitLink');
     const trailerVideo = document.getElementById('trailerVideo');
+    const steamWidgetFrame = document.getElementById('steamWidgetFrame');
     const galleryModal = document.getElementById('galleryModal');
     let galleryModalImage = document.getElementById('galleryModalImage');
     const galleryModalTrack = document.getElementById('galleryModalTrack');
@@ -78,6 +79,18 @@ document.addEventListener('DOMContentLoaded', () => {
         trailerVideo.src = config.trailerEmbedUrl || config.trailerFallbackUrl || 'about:blank';
     }
 
+    if (window.location.protocol === 'file:') {
+        // Browsers isolate file:// frames into unique origins; disable embeds to avoid noisy frame-origin errors in local preview.
+        if (steamWidgetFrame) {
+            steamWidgetFrame.src = 'about:blank';
+            steamWidgetFrame.hidden = true;
+        }
+
+        if (trailerVideo) {
+            trailerVideo.src = 'about:blank';
+        }
+    }
+
     const addTrackedClick = (element, eventName, eventLabel, extraParameters = {}) => {
         if (!element) {
             return;
@@ -104,6 +117,171 @@ document.addEventListener('DOMContentLoaded', () => {
         inactive: 'img/Visuals/Checked-False.png',
         active: 'img/Visuals/Checked-True.png'
     };
+    const heroOverlay = document.querySelector('.hero-overlay');
+
+    const deferredImages = Array.from(document.querySelectorAll('img[data-src]'));
+
+    deferredImages.forEach((image) => {
+        image.parentElement?.classList.add('asset-loading-parent');
+    });
+
+    const preloadImageSource = (src) => new Promise((resolve) => {
+        if (!src) {
+            resolve(false);
+            return;
+        }
+
+        const preloader = new Image();
+        preloader.onload = () => resolve(true);
+        preloader.onerror = () => resolve(false);
+        preloader.src = src;
+    });
+
+    const markImageLoaded = (image, targetSrc) => {
+        if (!image || !targetSrc) {
+            return;
+        }
+
+        image.src = targetSrc;
+        image.classList.add('asset-loaded');
+        image.dataset.loaded = 'true';
+        image.parentElement?.classList.add('asset-loaded');
+    };
+
+    const loadDeferredImage = async (image) => {
+        if (!image || image.dataset.loaded === 'true') {
+            return;
+        }
+
+        const targetSrc = image.dataset.src;
+        if (!targetSrc) {
+            image.classList.add('asset-loaded');
+            image.dataset.loaded = 'true';
+            image.parentElement?.classList.add('asset-loaded');
+            return;
+        }
+
+        await preloadImageSource(targetSrc);
+        markImageLoaded(image, targetSrc);
+    };
+
+    const uniqueImages = (images) => {
+        const seen = new Set();
+        return images.filter((image) => {
+            if (!image || seen.has(image)) {
+                return false;
+            }
+
+            seen.add(image);
+            return true;
+        });
+    };
+
+    const loadImageGroup = async (images) => {
+        const group = uniqueImages(images).filter((image) => image.dataset.loaded !== 'true');
+        if (group.length === 0) {
+            return;
+        }
+
+        await Promise.all(group.map((image) => loadDeferredImage(image)));
+    };
+
+    const loadHeroImage = async () => {
+        if (!heroOverlay) {
+            return;
+        }
+
+        const heroSrc = heroOverlay.dataset.heroSrc;
+        await preloadImageSource(heroSrc);
+        heroOverlay.classList.add('hero-loaded');
+    };
+
+    const getFirstCarouselImages = () => Array.from(document.querySelectorAll('.carousel')).map((carousel) => {
+        const firstSlide = carousel.querySelector('.carousel-slide');
+        return firstSlide?.querySelector('img[data-src]') || null;
+    }).filter(Boolean);
+
+    const getMenuGroupImages = () => Array.from(document.querySelectorAll('.character-tab img[data-src]'));
+
+    const getSarahMenuImage = () => {
+        return deferredImages.filter((image) => {
+            const source = image.dataset.src || '';
+            return source.includes('img/Characters/menu/Sarah');
+        });
+    };
+
+    const getSarahGifs = () => {
+        return deferredImages.filter((image) => {
+            const source = image.dataset.src || '';
+            return source.includes('img/Characters/gifs/01-Sarah_');
+        });
+    };
+
+    const runStagedImageLoading = async () => {
+        await loadHeroImage();
+        await loadImageGroup(getFirstCarouselImages());
+        await loadImageGroup(getMenuGroupImages());
+        await loadImageGroup(getSarahMenuImage());
+        await loadImageGroup(getSarahGifs());
+
+        const remainingImages = deferredImages.filter((image) => image.dataset.loaded !== 'true');
+        void loadImageGroup(remainingImages);
+    };
+
+    window.addEventListener('load', () => {
+        void runStagedImageLoading();
+    }, { once: true });
+
+    const initializeScrollFade = () => {
+        const revealGroups = [
+            '.cta-section .container > *',
+            '.features-intro > *',
+            '.feature-main-row',
+            '.character-tabs .character-tab',
+            '.character-panel .character-info > *',
+            '.character-panel .character-images > *',
+            '.faq-grid .faq-card',
+            '.kits-grid .kit-card'
+        ];
+
+        revealGroups.forEach((selector) => {
+            const nodes = Array.from(document.querySelectorAll(selector));
+            nodes.forEach((node, index) => {
+                node.classList.add('scroll-fade');
+                node.style.setProperty('--fade-delay', `${Math.min(index * 85, 500)}ms`);
+            });
+        });
+
+        const revealNodes = Array.from(document.querySelectorAll('.scroll-fade'));
+        if (revealNodes.length === 0) {
+            return;
+        }
+
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reducedMotion || typeof IntersectionObserver === 'undefined') {
+            revealNodes.forEach((node) => node.classList.add('is-visible'));
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries, currentObserver) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                entry.target.classList.add('is-visible');
+                currentObserver.unobserve(entry.target);
+            });
+        }, {
+            root: null,
+            threshold: 0.18,
+            rootMargin: '0px 0px -8% 0px',
+        });
+
+        revealNodes.forEach((node) => observer.observe(node));
+    };
+
+    initializeScrollFade();
 
     const applyContentData = (contentData) => {
         document.querySelectorAll('[data-content-key]').forEach((element) => {
@@ -298,6 +476,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.carousel').forEach((carousel) => {
         const track = carousel.querySelector('.carousel-track');
         const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+        const slideImages = slides
+            .map((slide) => slide.querySelector('img'))
+            .filter(Boolean);
         const prevButton = carousel.querySelector('.carousel-btn.prev');
         const nextButton = carousel.querySelector('.carousel-btn.next');
         const dotsContainer = carousel.querySelector('.carousel-dots');
@@ -308,7 +489,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .map((slide) => slide.querySelector('img'))
             .filter(Boolean)
             .map((img) => ({
-                src: img.currentSrc || img.src,
+                src: img.dataset.src || img.currentSrc || img.src,
                 alt: img.alt || '',
             }));
         let currentIndex = 0;
@@ -381,12 +562,52 @@ document.addEventListener('DOMContentLoaded', () => {
             updateCarousel();
         };
 
-        const startAutoAdvance = () => {
-            window.setInterval(advanceCarousel, 5000);
+        let autoAdvanceStarted = false;
+        let autoAdvanceObserver = null;
+
+        const shouldStartAutoAdvance = () => {
+            return slideImages.every((image) => {
+                if (image.dataset.src) {
+                    return image.dataset.loaded === 'true';
+                }
+
+                return image.complete && image.naturalWidth > 0;
+            });
+        };
+
+        const tryStartAutoAdvance = () => {
+            if (autoAdvanceStarted || !(isBattleCarousel || shouldAutoAdvance) || !shouldStartAutoAdvance()) {
+                return;
+            }
+
+            autoAdvanceStarted = true;
+            if (autoAdvanceObserver) {
+                autoAdvanceObserver.disconnect();
+                autoAdvanceObserver = null;
+            }
+
+            window.setTimeout(() => {
+                window.setInterval(advanceCarousel, 5000);
+            }, Math.random() * 5000);
         };
 
         if (isBattleCarousel || shouldAutoAdvance) {
-            window.setTimeout(startAutoAdvance, Math.random() * 5000);
+            if (shouldStartAutoAdvance()) {
+                tryStartAutoAdvance();
+            } else {
+                slideImages.forEach((image) => {
+                    image.addEventListener('load', tryStartAutoAdvance);
+                    image.addEventListener('error', tryStartAutoAdvance);
+                });
+
+                autoAdvanceObserver = new MutationObserver(tryStartAutoAdvance);
+                slideImages.forEach((image) => {
+                    autoAdvanceObserver.observe(image, {
+                        attributes: true,
+                        attributeFilter: ['data-loaded', 'class', 'src'],
+                    });
+                });
+            }
         }
 
         prevButton?.addEventListener('click', () => {
